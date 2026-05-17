@@ -1,0 +1,636 @@
+{
+  "version": "2.6.2",
+  "summary": {
+    "title": "Production E-Commerce API - Security Architecture",
+    "owner": "Varrun Vashisht",
+    "description": "Sensitive data handling via STRIDE & PostgreSQL",
+    "id": 0
+  },
+  "detail": {
+    "contributors": [],
+    "diagrams": [
+      {
+        "id": 0,
+        "title": "E-Commerce API - Security Arichitecture",
+        "diagramType": "STRIDE",
+        "placeholder": "New STRIDE diagram description",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.6.2",
+        "cells": [
+          {
+            "position": {
+              "x": 299.9999999999998,
+              "y": -435
+            },
+            "size": {
+              "width": 470,
+              "height": 190
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "id": "ba1dee31-8313-4684-9c52-a48fd5d8505e",
+            "zIndex": -1,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "Trust Boundary",
+              "description": "No one can access from outside.\nInternal Network.",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [
+                "d378cd74-38ce-4ee2-843e-db12c24a89e9",
+                "fbc3de69-60f1-46b3-aa4f-25489f16536a"
+              ],
+              "containedElements": [
+                "471cfc22-8abc-456c-98c7-6417c1588e83",
+                "565090cd-5352-4c09-ad96-abfd2c8a86f0"
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 40,
+              "y": -370
+            },
+            "size": {
+              "width": 112.5,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Client/ Customer"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "912ee08c-101d-4a44-a0e5-2c4f89859891"
+                },
+                {
+                  "group": "right",
+                  "id": "34cd7787-c612-4c73-8186-93891ef9998c"
+                },
+                {
+                  "group": "bottom",
+                  "id": "8b6e4c71-aff6-4877-9801-929bc0118c57"
+                },
+                {
+                  "group": "left",
+                  "id": "2a7d61fd-d2c1-4267-a833-ae7b21bf75c2"
+                }
+              ]
+            },
+            "id": "d26ce89d-a881-4568-9b02-db36cba0353c",
+            "zIndex": 1,
+            "data": {
+              "type": "tm.Actor",
+              "name": "Client/ Customer",
+              "description": "",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "providesAuthentication": false,
+              "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": 351,
+              "y": -375
+            },
+            "size": {
+              "width": 90,
+              "height": 70
+            },
+            "attrs": {
+              "text": {
+                "text": "Order \nService\n"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "01d46d57-7684-4a9b-9105-76bfb41d3abb"
+                },
+                {
+                  "group": "right",
+                  "id": "84a60880-3461-43d4-b04f-73e58664a723"
+                },
+                {
+                  "group": "bottom",
+                  "id": "787098ba-c25c-4e69-8e7a-fc158572f110"
+                },
+                {
+                  "group": "left",
+                  "id": "688521d3-c2da-4ab6-bccd-8dbcdf144f5f"
+                }
+              ]
+            },
+            "id": "471cfc22-8abc-456c-98c7-6417c1588e83",
+            "zIndex": 2,
+            "data": {
+              "type": "tm.Process",
+              "name": "Order \nService\n",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": [
+                {
+                  "id": "f5b24580-f9da-4a19-a1b5-a98f5546f762",
+                  "title": "JWT Token Impersonation",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "description": "Attackers use stolen or forged JWTs to access customer or admin APIs.\n\nA **JWT (JSON Web Token)** is like a **digital ID card** used in web applications to prove who you are after login.\n\n## Simple Flow\n\n1. You log in with username/password.\n2. Server checks your credentials.\n3. Server gives you a JWT token.\n4. Your app sends this token with every request.\n5. Server verifies the token and allows access.\n\n---\n\n## Real-World Analogy\n\nThink of JWT as a **hotel access card**:\n\n* Reception verifies your identity once.\n* They give you a card (JWT).\n* You use the card to open your room instead of showing ID every time.\n\n---\n\n## What’s Inside a JWT?\n\nA JWT usually contains:\n\n* User ID\n* Role (`customer`, `admin`)\n* Expiration time\n* Signature (to prevent tampering)\n\nExample:\n\n```json\n{\n  \"userId\": 101,\n  \"role\": \"customer\",\n  \"exp\": 1750000000\n}\n```\n\n---\n\n## Why JWT is Popular in NestJS APIs\n\n* Stateless authentication\n* Fast validation\n* Works well with microservices\n* Easy for mobile/web apps\n\n---\n\n## Important Security Rules\n\n### Good Practice\n\n* Use HTTPS only\n* Set token expiration\n* Store secrets securely\n* Validate signature properly\n\n### Bad Practice\n\n* Never trust unsigned tokens\n* Never store sensitive data inside JWT\n* Don’t use very long expiration times\n\n---\n\n",
+                  "mitigation": "Use RS256/ES256 signing, rotate secrets regularly, enforce MFA for privileged users, validate JWT issuer/audience, and implement short token expiration.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 1,
+                  "score": ""
+                },
+                {
+                  "id": "fcb2db7b-6f3a-4e97-b6bb-bf48312e8b06",
+                  "title": "SQL Injection on Order APIs",
+                  "status": "Mitigated",
+                  "severity": "Low",
+                  "type": "Tampering",
+                  "description": "Malicious input manipulates PostgreSQL queries and modifies order/customer records.",
+                  "mitigation": "Enforce parameterized queries via ORM, validate DTOs with class-validator, sanitize inputs, disable unsafe raw SQL, and apply least-privilege DB access.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 2,
+                  "score": ""
+                },
+                {
+                  "id": "37180d76-a854-4f91-813b-00a0c502bcd2",
+                  "title": "Missing Audit Logging",
+                  "status": "Mitigated",
+                  "severity": "TBD",
+                  "type": "Repudiation",
+                  "description": "Users or admins deny creating, updating, or canceling orders due to insufficient traceability.",
+                  "mitigation": "Enable immutable audit logs, log user ID/IP/request ID, centralize logs in SIEM, sync server time with NTP, and protect logs from modification.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 3,
+                  "score": ""
+                },
+                {
+                  "id": "d8cbe1b4-dff2-403b-94ec-d3a4d3c76d91",
+                  "title": "Customer Data Leakage",
+                  "status": "Mitigated",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "APIs, logs, or database exposure reveal sensitive customer/order information.",
+                  "mitigation": "Encrypt sensitive data at rest and in transit, mask PII in logs, enforce RBAC guards, disable verbose production errors, and restrict DB/network access.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 4,
+                  "score": ""
+                },
+                {
+                  "id": "e62a9881-c06a-4d73-97eb-ec77c0517f5f",
+                  "title": "API Flooding / Resource Exhaustion",
+                  "status": "NotApplicable",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "Attackers overwhelm NestJS APIs or PostgreSQL with excessive requests.",
+                  "mitigation": "Apply API rate limiting, enable WAF/CDN protections, configure DB connection pooling, implement request timeouts, and autoscale services where possible.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 5,
+                  "score": ""
+                },
+                {
+                  "id": "95b14a21-4c1d-4bb1-8abb-7484b7e594f9",
+                  "title": "Broken Authorization Controls",
+                  "status": "Mitigated",
+                  "severity": "TBD",
+                  "type": "Elevation of privilege",
+                  "description": "Normal users gain admin-level access to orders or customer data.",
+                  "mitigation": "Enforce RBAC/ABAC guards in NestJS, validate ownership checks on every request, separate admin/user roles, and conduct regular authorization testing.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 6,
+                  "score": ""
+                },
+                {
+                  "id": "860801f1-dc7b-4c59-a1f0-3f0e4a73cb01",
+                  "title": "New STRIDE threat",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Provide a description for this threat",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": true,
+                  "number": 7,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 2,
+                "tampering": 1,
+                "repudiation": 1,
+                "informationDisclosure": 2,
+                "denialOfService": 2,
+                "elevationOfPrivilege": 1
+              }
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Request",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": [
+                "ba1dee31-8313-4684-9c52-a48fd5d8505e"
+              ]
+            },
+            "labels": [
+              "Request"
+            ],
+            "id": "d378cd74-38ce-4ee2-843e-db12c24a89e9",
+            "source": {
+              "x": 183,
+              "y": -344
+            },
+            "target": {
+              "cell": "471cfc22-8abc-456c-98c7-6417c1588e83",
+              "port": "688521d3-c2da-4ab6-bccd-8dbcdf144f5f"
+            },
+            "vertices": [
+              {
+                "x": 160,
+                "y": -344
+              },
+              {
+                "x": 240,
+                "y": -344
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Query/ Save",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": [
+                "ba1dee31-8313-4684-9c52-a48fd5d8505e"
+              ]
+            },
+            "labels": [
+              "Query/ Save"
+            ],
+            "id": "fbc3de69-60f1-46b3-aa4f-25489f16536a",
+            "source": {
+              "x": 431,
+              "y": -346
+            },
+            "target": {
+              "cell": "565090cd-5352-4c09-ad96-abfd2c8a86f0",
+              "port": "7ed5c070-2fec-4ae9-b38e-f66fc5dcfefd"
+            },
+            "vertices": [
+              {
+                "x": 510,
+                "y": -346
+              }
+            ]
+          },
+          {
+            "position": {
+              "x": 611,
+              "y": -375
+            },
+            "size": {
+              "width": 120,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Customer\nDB"
+              },
+              "topLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "6aea64e8-ea7b-4623-87ca-5eeb0bb0b49f"
+                },
+                {
+                  "group": "right",
+                  "id": "2d79df97-0b21-4797-8f82-92f97942a546"
+                },
+                {
+                  "group": "bottom",
+                  "id": "856e3d2f-3919-4c07-a0fc-0a34ce97be2d"
+                },
+                {
+                  "group": "left",
+                  "id": "7ed5c070-2fec-4ae9-b38e-f66fc5dcfefd"
+                }
+              ]
+            },
+            "id": "565090cd-5352-4c09-ad96-abfd2c8a86f0",
+            "zIndex": 11,
+            "data": {
+              "type": "tm.Store",
+              "name": "Customer\nDB",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isALog": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "storesCredentials": false,
+              "storesInventory": false,
+              "threats": []
+            }
+          }
+        ]
+      }
+    ],
+    "diagramTop": 1,
+    "reviewer": "",
+    "threatTop": 7
+  }
+}
